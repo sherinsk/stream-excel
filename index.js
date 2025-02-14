@@ -1,9 +1,12 @@
 const express = require('express');
 const { PrismaClient } = require('@prisma/client');
 const ExcelJS = require('exceljs');
+const cors = require('cors');
 
 const prisma = new PrismaClient();
 const app = express();
+
+app.use(cors());
 
 app.get('/download-excel', async (req, res) => {
     try {
